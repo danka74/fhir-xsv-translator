@@ -129,12 +129,14 @@ public class NPUDefinitionEntry {
 
     addStringProperty(conceptDefinitionComponent, rule, "Rule");
 
+    addStringProperty(conceptDefinitionComponent, !Strings.isNullOrEmpty(active) && active.equals("0") ? "DEPRECATED" : "ACTIVE", "STATUS");
+    /* 
     if (!Strings.isNullOrEmpty(active)) {
       conceptDefinitionComponent
-          .addProperty(new ConceptPropertyComponent().setCode("Active")
+          .addProperty(new ConceptPropertyComponent().setCode("STATUS")
               .setValue(new BooleanType().setValue(!active.equalsIgnoreCase("0"))));
     }
-
+ */
     return conceptDefinitionComponent;
   }
 
